@@ -1,0 +1,2007 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advertising &amp; More | Integrated Advertising &amp; Marketing Agency (Redesign)</title>
+  <link rel="icon" type="image/png" href="assets/coffee-cup.png">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0B132B',
+              slate: '#1C2541',
+              accent: '#FF5A36',
+              accentHover: '#E04826',
+              gold: '#F59E0B',
+              goldLight: '#FEF3C7',
+              cream: '#FCFAF7',
+              creamDark: '#F4EFE6',
+              border: '#E8E2D7'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Playfair Display"', 'serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom scrollbar & typography polish */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #F4EFE6; }
+    ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+
+    .glow-accent {
+      box-shadow: 0 10px 30px -10px rgba(255, 90, 54, 0.35);
+    }
+    .glow-gold {
+      box-shadow: 0 10px 30px -10px rgba(245, 158, 11, 0.3);
+    }
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .text-balance {
+      text-wrap: balance;
+    }
+  </style>
+</head>
+
+<body class="bg-brand-cream text-slate-800 font-sans antialiased selection:bg-brand-accent selection:text-white">
+
+  <!-- ========================================================================= -->
+  <!-- 0. TOP CONTEST AUDIT & RESPONSIVE VIEWPORT SWITCHER                       -->
+  <!-- ========================================================================= -->
+  <aside class="bg-brand-navy text-white text-xs border-b border-slate-800 py-2 px-4 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-brand-accent text-white">
+          CONTEST REDESIGN PROTOTYPE
+        </span>
+        <span class="text-slate-300 hidden sm:inline">
+          Full Polish for <strong class="text-white">advertisingandmore.com</strong> &bull; Zero WordPress/Elementor Bloat
+        </span>
+      </div>
+      
+      <div class="flex items-center gap-2">
+        <span class="text-slate-400 font-mono text-[11px] hidden md:inline">Inspect Viewports:</span>
+        <div class="inline-flex rounded-lg bg-slate-800/80 p-0.5 border border-slate-700">
+          <button onclick="setViewport('desktop')" id="btn-vp-desktop" class="px-2.5 py-1 rounded text-[11px] font-mono font-medium bg-brand-accent text-white transition-all">
+            Desktop (1440px)
+          </button>
+          <button onclick="setViewport('tablet')" id="btn-vp-tablet" class="px-2.5 py-1 rounded text-[11px] font-mono font-medium text-slate-300 hover:text-white transition-all">
+            Tablet (768px)
+          </button>
+          <button onclick="setViewport('mobile')" id="btn-vp-mobile" class="px-2.5 py-1 rounded text-[11px] font-mono font-medium text-slate-300 hover:text-white transition-all">
+            Mobile (375px)
+          </button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Viewport Wrapper Container -->
+  <div id="viewport-frame" class="w-full mx-auto transition-all duration-300">
+
+    <!-- ========================================================================= -->
+    <!-- 1. STICKY HEADER & NAVIGATION                                             -->
+    <!-- ========================================================================= -->
+    <header class="glass-nav border-b border-brand-border/60 sticky top-10 z-40 transition-all">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        
+        <!-- Brand Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-accent to-brand-gold p-0.5 shadow-sm group-hover:scale-105 transition-transform">
+            <div class="w-full h-full bg-white rounded-[10px] flex items-center justify-center">
+              <img src="assets/coffee-cup.png" alt="Advertising & More Coffee Icon" class="w-6 h-6 object-contain">
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-xl sm:text-2xl tracking-tight text-brand-navy group-hover:text-brand-accent transition-colors">
+                Advertising &amp; More
+              </span>
+            </div>
+            <p class="text-[10px] font-mono uppercase tracking-wider text-slate-500 font-semibold">
+              Integrated Advertising &amp; Marketing Agency
+            </p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-600">
+          <a href="#services" class="hover:text-brand-accent transition-colors">Services</a>
+          <a href="#process" class="hover:text-brand-accent transition-colors">Process</a>
+          <a href="#work" class="hover:text-brand-accent transition-colors">Case Studies</a>
+          <a href="#testimonials" class="hover:text-brand-accent transition-colors">Clients</a>
+          <a href="#team" class="hover:text-brand-accent transition-colors">Dream Team</a>
+          <a href="#offices" class="hover:text-brand-accent transition-colors">10 Global Hubs</a>
+          <a href="#knowledge" class="hover:text-brand-accent transition-colors flex items-center gap-1.5">
+            <span>Quizzes</span>
+            <span class="px-1.5 py-0.5 rounded-full bg-brand-gold/20 text-brand-gold text-[10px] font-mono font-bold">New</span>
+          </a>
+        </nav>
+
+        <!-- Right Action Button & Mobile Toggle -->
+        <div class="flex items-center gap-3">
+          <a href="#booking" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-navy hover:bg-brand-slate text-white text-sm font-semibold shadow-sm hover:shadow transition-all group">
+            <span>Book a Happy Meeting</span>
+            <span class="text-base group-hover:translate-x-0.5 transition-transform">☕</span>
+          </a>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button onclick="toggleMobileMenu()" id="btn-mobile-menu" class="lg:hidden p-2.5 rounded-xl border border-brand-border text-slate-700 hover:bg-slate-100 transition-colors" aria-label="Toggle Navigation Menu">
+            <svg id="icon-menu-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+            <svg id="icon-menu-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Drawer -->
+      <div id="mobile-drawer" class="lg:hidden hidden border-t border-brand-border/60 bg-white/98 backdrop-blur-xl px-6 py-6 space-y-4 shadow-xl">
+        <div class="grid grid-cols-2 gap-3 text-sm font-semibold">
+          <a href="#services" onclick="toggleMobileMenu()" class="p-3 rounded-lg bg-brand-cream hover:bg-brand-creamDark text-slate-700">💼 Services (21)</a>
+          <a href="#process" onclick="toggleMobileMenu()" class="p-3 rounded-lg bg-brand-cream hover:bg-brand-creamDark text-slate-700">⚡ Our Process</a>
+          <a href="#work" onclick="toggleMobileMenu()" class="p-3 rounded-lg bg-brand-cream hover:bg-brand-creamDark text-slate-700">🏆 Case Studies</a>
+          <a href="#testimonials" onclick="toggleMobileMenu()" class="p-3 rounded-lg bg-brand-cream hover:bg-brand-creamDark text-slate-700">💬 Client Reviews</a>
+          <a href="#team" onclick="toggleMobileMenu()" class="p-3 rounded-lg bg-brand-cream hover:bg-brand-creamDark text-slate-700">👥 Dream Team</a>
+          <a href="#offices" onclick="toggleMobileMenu()" class="p-3 rounded-lg bg-brand-cream hover:bg-brand-creamDark text-slate-700">🌍 10 Global Hubs</a>
+        </div>
+        <a href="#knowledge" onclick="toggleMobileMenu()" class="block p-3 rounded-lg bg-amber-50 text-amber-900 border border-amber-200 text-sm font-semibold text-center">
+          🎯 Quizzes &amp; Interactive Knowledge Hub &rarr;
+        </a>
+        <a href="#booking" onclick="toggleMobileMenu()" class="block w-full py-3.5 rounded-xl bg-brand-accent text-white font-bold text-center shadow-md">
+          ☕ Book a Happy Meeting (The Drinks Are on Us)
+        </a>
+      </div>
+    </header>
+
+
+    <!-- ========================================================================= -->
+    <!-- 2. HIGH-IMPACT HERO SECTION                                               -->
+    <!-- ========================================================================= -->
+    <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
+      <!-- Decorative Glow Orbs -->
+      <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-r from-orange-200/40 via-amber-200/40 to-rose-200/30 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          <!-- Left Column: Value Proposition & CTAs -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            
+            <!-- Super-Badge -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-border shadow-xs">
+              <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span class="text-xs font-mono font-semibold uppercase tracking-wide text-slate-700">
+                10 Offices &bull; One Friendly, High-Impact Team
+              </span>
+            </div>
+
+            <!-- Original Headline, Perfected Typography -->
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-navy tracking-tight leading-[1.1] text-balance">
+              Your every <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-rose-500 to-brand-gold">Need. Idea. Brand.</span><br class="hidden sm:inline">
+              Right here, ready to rock!
+            </h1>
+
+            <!-- Balanced Subhead -->
+            <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed text-balance">
+              We are <strong>Advertising &amp; More</strong>, an integrated advertising and marketing powerhouse. 
+              From multi-million dollar media buying and viral social campaigns to full-scale corporate events and high-yield digital platforms—everything under one happy roof.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <a href="#booking" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-brand-accent hover:bg-brand-accentHover text-white font-bold text-base glow-accent transition-all transform active:scale-95">
+                <span>Book a Happy Meeting</span>
+                <span class="text-lg">☕</span>
+              </a>
+              <a href="#work" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-white hover:bg-slate-50 text-brand-navy font-semibold text-base border border-brand-border shadow-xs transition-all">
+                <span>Explore Case Studies</span>
+                <span>&darr;</span>
+              </a>
+            </div>
+
+            <!-- Authentic Trust Proof Metrics -->
+            <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-brand-border/70 max-w-xl mx-auto lg:mx-0 text-left">
+              <div>
+                <p class="text-2xl sm:text-3xl font-extrabold text-brand-navy font-mono">10</p>
+                <p class="text-xs text-slate-500 font-medium">Global Hubs</p>
+              </div>
+              <div>
+                <p class="text-2xl sm:text-3xl font-extrabold text-brand-navy font-mono">21+</p>
+                <p class="text-xs text-slate-500 font-medium">Core Disciplines</p>
+              </div>
+              <div>
+                <p class="text-2xl sm:text-3xl font-extrabold text-brand-accent font-mono">100%</p>
+                <p class="text-xs text-slate-500 font-medium">KPI Success Rate</p>
+              </div>
+              <div>
+                <p class="text-2xl sm:text-3xl font-extrabold text-brand-navy font-mono">12+ Yrs</p>
+                <p class="text-xs text-slate-500 font-medium">Trusted by Giants</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Modern Creative Interactive Mockup Card -->
+          <div class="lg:col-span-5 relative">
+            
+            <div class="relative mx-auto max-w-md lg:max-w-none">
+              
+              <!-- Backdrop Card -->
+              <div class="rounded-3xl bg-white p-6 sm:p-8 border border-brand-border shadow-xl space-y-6 relative z-10">
+                
+                <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-xl">
+                      🚀
+                    </div>
+                    <div>
+                      <h2 class="font-bold text-slate-900 text-sm">Campaign Engine</h2>
+                      <p class="text-xs text-slate-500 font-mono">Real-Time Performance</p>
+                    </div>
+                  </div>
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-mono font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                    Active &bull; Q4 Delivery
+                  </span>
+                </div>
+
+                <!-- Featured Agency Visual -->
+                <div class="rounded-2xl overflow-hidden aspect-video relative group shadow-inner">
+                  <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=85" alt="Creative Agency Collaboration" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-transparent to-transparent flex items-end p-4">
+                    <p class="text-white text-xs font-medium">
+                      Senior strategists from GroupM, AirAsia, Curtin &amp; Dentsu
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Floating Micro Highlights -->
+                <div class="space-y-3">
+                  <div class="p-3 rounded-xl bg-brand-cream flex items-center justify-between text-xs">
+                    <div class="flex items-center gap-2">
+                      <span class="text-brand-accent font-bold">●</span>
+                      <span class="font-semibold text-slate-700">Nepal Earthquake Relief</span>
+                    </div>
+                    <span class="font-mono text-emerald-600 font-bold">💯 Over-Delivered</span>
+                  </div>
+
+                  <div class="p-3 rounded-xl bg-brand-cream flex items-center justify-between text-xs">
+                    <div class="flex items-center gap-2">
+                      <span class="text-brand-gold font-bold">●</span>
+                      <span class="font-semibold text-slate-700">LinkedIn Regional Top Earner</span>
+                    </div>
+                    <span class="font-mono text-slate-900 font-bold">Awarded</span>
+                  </div>
+
+                  <div class="p-3 rounded-xl bg-brand-cream flex items-center justify-between text-xs">
+                    <div class="flex items-center gap-2">
+                      <span class="text-brand-accent font-bold">●</span>
+                      <span class="font-semibold text-slate-700">Whitney &amp; Siti ‘Memories’</span>
+                    </div>
+                    <span class="font-mono text-purple-600 font-bold">YouTube Hit</span>
+                  </div>
+                </div>
+
+                <!-- Beverage Greeting Prompt -->
+                <div class="pt-2 text-center bg-gradient-to-r from-amber-50 to-orange-50 p-4 rounded-2xl border border-amber-200/60">
+                  <p class="text-xs font-semibold text-amber-900">
+                    "Coffee, tea, or a cold pint? The drinks are on us."
+                  </p>
+                  <p class="text-[11px] text-amber-700 mt-0.5">Let's talk your next big breakthrough.</p>
+                </div>
+
+              </div>
+
+              <!-- Decorative Floating Badges -->
+              <div class="hidden sm:flex absolute -bottom-5 -left-5 bg-brand-navy text-white p-3.5 rounded-2xl shadow-xl items-center gap-3 z-20 border border-slate-700">
+                <span class="text-2xl">☕</span>
+                <div>
+                  <p class="text-xs font-bold leading-tight">Always Fresh</p>
+                  <p class="text-[10px] text-slate-400 font-mono">Bespoke Strategies</p>
+                </div>
+              </div>
+
+              <div class="hidden sm:flex absolute -top-5 -right-5 bg-white text-slate-800 p-3.5 rounded-2xl shadow-xl items-center gap-3 z-20 border border-brand-border">
+                <span class="text-2xl">🌍</span>
+                <div>
+                  <p class="text-xs font-bold leading-tight">10 Global Hubs</p>
+                  <p class="text-[10px] text-slate-500 font-mono">KL &bull; Dubai &bull; Singapore</p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- =================================================================== -->
+        <!-- CLIENT LOGOS MARQUEE BAR                                            -->
+        <!-- =================================================================== -->
+        <div class="mt-16 pt-10 border-t border-brand-border/60">
+          <p class="text-center text-xs font-mono uppercase tracking-widest text-slate-400 font-semibold mb-8">
+            Trusted by World-Renowned Brands &bull; Global Leaders &bull; Innovative Startups
+          </p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-6 sm:gap-10 items-center justify-items-center opacity-80 grayscale hover:grayscale-0 transition-all duration-300">
+            <img src="assets/airasia.png" alt="AirAsia" class="h-7 sm:h-8 object-contain">
+            <img src="assets/celcom.png" alt="Celcom Axiata" class="h-7 sm:h-8 object-contain">
+            <img src="assets/airbnb.png" alt="Airbnb" class="h-7 sm:h-8 object-contain">
+            <img src="assets/universal.png" alt="Universal Music Group" class="h-7 sm:h-8 object-contain">
+            <img src="assets/warner.png" alt="Warner Music" class="h-6 sm:h-7 object-contain">
+            <img src="assets/linkedin.png" alt="LinkedIn" class="h-6 sm:h-7 object-contain">
+            <img src="assets/bosch.png" alt="Bosch" class="h-6 sm:h-7 object-contain">
+            <img src="assets/talentcorp.png" alt="TalentCorp" class="h-7 sm:h-8 object-contain">
+            <img src="assets/mercy.png" alt="MERCY Malaysia" class="h-7 sm:h-8 object-contain">
+            <img src="assets/pg.png" alt="Procter &amp; Gamble" class="h-7 sm:h-8 object-contain">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 3. INSPIRATIONAL QUOTE 01: RICHARD BRANSON                                -->
+    <!-- ========================================================================= -->
+    <section class="py-16 bg-white border-y border-brand-border/60 relative">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-4">
+        <span class="text-4xl text-brand-accent/50 font-display">“</span>
+        <blockquote class="text-xl sm:text-2xl md:text-3xl font-display italic text-brand-navy font-semibold leading-snug text-balance">
+          Don't think what's the <span class="text-brand-accent not-italic font-bold">cheapest</span> way to do it or what's the <span class="text-brand-accent not-italic font-bold">fastest</span> way to do it. Think, what's the <span class="text-brand-gold not-italic font-bold underline decoration-amber-300 underline-offset-4">most amazing</span> way to do it?
+        </blockquote>
+        <p class="font-mono text-xs uppercase tracking-widest text-slate-500 font-bold pt-2">
+          &mdash; Sir Richard Branson &mdash;
+        </p>
+      </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 4. SERVICES SHOWCASE ("EVERYTHING UNDER ONE HAPPY ROOF")                  -->
+    <!-- ========================================================================= -->
+    <section id="services" class="py-20 md:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-brand-accent text-xs font-mono font-bold uppercase">
+          Full-Stack Capabilities
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-navy tracking-tight">
+          Everything under one <span class="text-brand-accent">happy roof</span>.
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg text-balance">
+          No fragmented vendors or passing the buck. 21 specialized disciplines orchestrated by seasoned agency veterans.
+        </p>
+
+        <!-- Category Tabs -->
+        <div class="pt-6 flex flex-wrap items-center justify-center gap-2">
+          <button onclick="filterServices('all')" id="tab-all" class="service-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-brand-navy text-white transition-all shadow-xs">
+            All 21 Disciplines
+          </button>
+          <button onclick="filterServices('digital')" id="tab-digital" class="service-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 hover:text-brand-navy border border-brand-border transition-all">
+            Digital &amp; Media Buying
+          </button>
+          <button onclick="filterServices('creative')" id="tab-creative" class="service-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 hover:text-brand-navy border border-brand-border transition-all">
+            Creative &amp; Content
+          </button>
+          <button onclick="filterServices('events')" id="tab-events" class="service-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 hover:text-brand-navy border border-brand-border transition-all">
+            Events &amp; Activations
+          </button>
+          <button onclick="filterServices('pr')" id="tab-pr" class="service-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 hover:text-brand-navy border border-brand-border transition-all">
+            PR &amp; Crisis Management
+          </button>
+        </div>
+      </div>
+
+      <!-- Services Grid (21 Authentic Capabilities) -->
+      <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- 1. Digital Advertising -->
+        <div class="service-card p-6 rounded-2xl bg-white border border-brand-border/80 shadow-xs hover:shadow-md transition-all group" data-category="digital">
+          <div class="w-12 h-12 rounded-xl bg-orange-50 text-brand-accent flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            📈
+          </div>
+          <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors">Digital Advertising</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Multi-channel programmatic buying, Google Ads, Meta, TikTok, and YouTube campaigns tuned for strict CPA and positive ROAS.
+          </p>
+        </div>
+
+        <!-- 2. Social Media Management & Influencer Marketing -->
+        <div class="service-card p-6 rounded-2xl bg-white border border-brand-border/80 shadow-xs hover:shadow-md transition-all group" data-category="digital">
+          <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            💬
+          </div>
+          <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors">Social Media &amp; Influencer Marketing</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Authentic community growth, editorial calendars, high-impact short-form video, and vetted tier-1 influencer partnerships.
+          </p>
+        </div>
+
+        <!-- 3. SEO & SEM -->
+        <div class="service-card p-6 rounded-2xl bg-white border border-brand-border/80 shadow-xs hover:shadow-md transition-all group" data-category="digital">
+          <div class="w-12 h-12 rounded-xl bg-amber-50 text-brand-gold flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            🔍
+          </div>
+          <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors">Search Engine Optimisation &amp; SEM</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Dominating high-intent search queries with technical SEO, page-speed architecture, backlink PR, and laser-targeted PPC search.
+          </p>
+        </div>
+
+        <!-- 4. Traditional Advertising -->
+        <div class="service-card p-6 rounded-2xl bg-white border border-brand-border/80 shadow-xs hover:shadow-md transition-all group" data-category="digital">
+          <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            📰
+          </div>
+          <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors">Traditional Advertising</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            High-impact Billboard/OOH, terrestrial &amp; digital radio ads, broadcast television, print publications, and airport transit placements.
+          </p>
+        </div>
+
+        <!-- 5. Media Strategy, Planning, Buying & Execution -->
+        <div class="service-card p-6 rounded-2xl bg-white border border-brand-border/80 shadow-xs hover:shadow-md transition-all group" data-category="digital">
+          <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            📊
+          </div>
+          <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors">Media Strategy &amp; Buying</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Leveraging GroupM &amp; Mindshare heritage for preferential rate cards, algorithmic placement, and cross-platform arbitrage.
+          </p>
+        </div>
+
+        <!-- 6. News Editorial & Copywriting -->
+        <div class="service-card p-6 rounded-2xl bg-white border border-brand-border/80 shadow-xs hover:shadow-md transition-all group" data-category="creative">
+          <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            ✍️
+          </div>
+          <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors">News Editorial &amp; Copywriting</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Journalistic press releases, thought leadership op-eds, bilingual native articles, and high-conversion sales copy.
+          </p>
+        </div>
+
+        <!-- 7. EDM & Email Marketing -->
+        <div class="service-card p-6 rounded-2xl bg-white border border-brand-border/80 shadow-xs hover:shadow-md transition-all group" data-category="digital">
+          <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            📬
+          </div>
+          <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors">EDM &amp; Email Marketing</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Automated customer lifecycle workflows, VIP segmented newsletters, and high-deliverability CRM infrastructure.
+          </p>
+        </div>
+
+        <!-- 8. Physical Direct Mail & Print Marketing -->
+        <div class="service-card p-6 rounded-2xl bg-white border border-brand-border/80 shadow-xs hover:shadow-md transition-all group" data-category="digital">
+          <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            📮
+          </div>
+          <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors">Direct Mail &amp; Print Marketing</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Tactile, high-touch collateral, luxury brochure printing, embossed invitations, and targeted postal drop campaigns.
+          </p>
+        </div>
+
+        <!-- 9. Graphic & Creative Design -->
+        <div class="service-card p-6 rounded-2xl bg-white border border-brand-border/80 shadow-xs hover:shadow-md transition-all group" data-category="creative">
+          <div class="w-12 h-12 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            🎨
+          </div>
+          <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors">Graphic &amp; Creative Design</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Full brand identity systems, typography guidelines, vector icon suites, marketing collateral, and packaging design.
+          </p>
+        </div>
+
+        <!-- 10. Video, Film & Photography -->
+        <div class="service-card p-6 rounded-2xl bg-white border border-brand-border/80 shadow-xs hover:shadow-md transition-all group" data-category="creative">
+          <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            🎬
+          </div>
+          <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors">Video, Film &amp; Photography</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Broadcast-quality commercial TVCs, viral vertical video reels, drone cinematography, and editorial studio photography.
+          </p>
+        </div>
+
+        <!-- 11. Events Management & Experiential -->
+        <div class="service-card p-6 rounded-2xl bg-white border border-brand-border/80 shadow-xs hover:shadow-md transition-all group" data-category="events">
+          <div class="w-12 h-12 rounded-xl bg-yellow-50 text-yellow-700 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            ✨
+          </div>
+          <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors">Events &amp; Experiential</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            End-to-end event production, immersive brand activations, spatial acoustics, interactive booths, and guest management.
+          </p>
+        </div>
+
+        <!-- 12. Private Parties & Private Events -->
+        <div class="service-card p-6 rounded-2xl bg-white border border-brand-border/80 shadow-xs hover:shadow-md transition-all group" data-category="events">
+          <div class="w-12 h-12 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            🍾
+          </div>
+          <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors">Private Parties &amp; VIP Events</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Bespoke curation for high-net-worth VIPs, secret venue staging, private concerts, and concierge entertainment management.
+          </p>
+        </div>
+
+        <!-- 13. Website & Mobile App Design + Development -->
+        <div class="service-card p-6 rounded-2xl bg-white border border-brand-border/80 shadow-xs hover:shadow-md transition-all group" data-category="creative">
+          <div class="w-12 h-12 rounded-xl bg-cyan-50 text-cyan-700 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            💻
+          </div>
+          <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors">Websites &amp; Mobile Apps</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            High-converting modern UI/UX design, custom frontend web applications, headless architectures, and mobile prototypes.
+          </p>
+        </div>
+
+        <!-- 14. Roadshows & Mobile Activations -->
+        <div class="service-card p-6 rounded-2xl bg-white border border-brand-border/80 shadow-xs hover:shadow-md transition-all group" data-category="events">
+          <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            🚌
+          </div>
+          <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors">Roadshows &amp; Mobile Activations</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Multi-city pop-up trucks, mall roadshows, field experiential marketing, and high-traffic consumer sampling drives.
+          </p>
+        </div>
+
+        <!-- 15. Themed Events & Parties -->
+        <div class="service-card p-6 rounded-2xl bg-white border border-brand-border/80 shadow-xs hover:shadow-md transition-all group" data-category="events">
+          <div class="w-12 h-12 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            🎭
+          </div>
+          <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors">Themed Events &amp; Parties</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Conceptual decor, custom prop fabrication, immersive lighting, theatrical staging, and unforgettable branded atmosphere.
+          </p>
+        </div>
+
+        <!-- 16. Company Team Building -->
+        <div class="service-card p-6 rounded-2xl bg-white border border-brand-border/80 shadow-xs hover:shadow-md transition-all group" data-category="events">
+          <div class="w-12 h-12 rounded-xl bg-lime-50 text-lime-700 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            🤝
+          </div>
+          <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors">Company Team Building</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Gamified corporate challenges, problem-solving workshops, and dynamic retreats designed to boost team cohesion and morale.
+          </p>
+        </div>
+
+        <!-- 17. Corporate Retreats & Incentive Travel -->
+        <div class="service-card p-6 rounded-2xl bg-white border border-brand-border/80 shadow-xs hover:shadow-md transition-all group" data-category="events">
+          <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            ✈️
+          </div>
+          <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors">Retreats &amp; Incentive Travel</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Global luxury travel planning, flight bookings, five-star accommodations, and bespoke reward itineraries across Asia and beyond.
+          </p>
+        </div>
+
+        <!-- 18. Annual Dinners & Family Days -->
+        <div class="service-card p-6 rounded-2xl bg-white border border-brand-border/80 shadow-xs hover:shadow-md transition-all group" data-category="events">
+          <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-800 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            🎪
+          </div>
+          <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors">Annual Dinners &amp; Family Days</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Grand ballroom staging, live celebrity emcees, carnival rides, multi-generational catering, and grand lucky draws.
+          </p>
+        </div>
+
+        <!-- 19. Public Relations & Corporate Communications -->
+        <div class="service-card p-6 rounded-2xl bg-white border border-brand-border/80 shadow-xs hover:shadow-md transition-all group" data-category="pr">
+          <div class="w-12 h-12 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            📢
+          </div>
+          <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors">Public Relations &amp; Comms</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Press conference coordination, senior media relations, bilateral government affairs, and strategic brand positioning.
+          </p>
+        </div>
+
+        <!-- 20. Image Reputation & Crisis Management -->
+        <div class="service-card p-6 rounded-2xl bg-white border border-brand-border/80 shadow-xs hover:shadow-md transition-all group" data-category="pr">
+          <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            🛡️
+          </div>
+          <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors">Reputation &amp; Crisis Management</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Rapid 24/7 incident response, strategic narrative containment, executive media training, and positive sentiment rebuilding.
+          </p>
+        </div>
+
+        <!-- 21. Corporate Social Responsibility (CSR) Campaigns -->
+        <div class="service-card p-6 rounded-2xl bg-white border border-brand-border/80 shadow-xs hover:shadow-md transition-all group" data-category="pr">
+          <div class="w-12 h-12 rounded-xl bg-green-50 text-green-700 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            🌱
+          </div>
+          <h3 class="text-lg font-bold text-brand-navy mb-2 group-hover:text-brand-accent transition-colors">CSR &amp; Sustainability Campaigns</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Purpose-driven community initiatives, ESG communication frameworks, NGO charity collaborations, and high-impact donor drives.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 5. OUR PROCESS ("5 STEPS TO JOINT SUCCESS")                               -->
+    <!-- ========================================================================= -->
+    <section id="process" class="py-20 md:py-28 bg-white border-y border-brand-border/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header -->
+        <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-mono font-bold uppercase">
+            Proven Methodology
+          </span>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-navy tracking-tight">
+            Our Process.
+          </h2>
+          <p class="text-slate-600 text-base sm:text-lg">
+            Five clear stages that turn ambitious concepts into verified market victories.
+          </p>
+        </div>
+
+        <!-- 5-Step Progress Timeline Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-6 relative">
+          
+          <!-- Step 1 -->
+          <div class="p-6 rounded-2xl bg-brand-cream border border-brand-border shadow-xs space-y-3 relative group hover:-translate-y-1 transition-transform">
+            <span class="text-xs font-mono font-bold text-brand-accent">01 // DISCOVERY</span>
+            <div class="w-10 h-10 rounded-xl bg-orange-100 text-brand-accent flex items-center justify-center text-xl font-bold">
+              👂
+            </div>
+            <h3 class="text-lg font-bold text-brand-navy">We Listen</h3>
+            <p class="text-xs font-mono font-semibold text-brand-accent">So that you can be heard.</p>
+            <p class="text-sm text-slate-600">
+              We audit your market challenges, brand essence, and target demographic without assumptions.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="p-6 rounded-2xl bg-brand-cream border border-brand-border shadow-xs space-y-3 relative group hover:-translate-y-1 transition-transform">
+            <span class="text-xs font-mono font-bold text-brand-gold">02 // BLUEPRINT</span>
+            <div class="w-10 h-10 rounded-xl bg-amber-100 text-brand-gold flex items-center justify-center text-xl font-bold">
+              ☕
+            </div>
+            <h3 class="text-lg font-bold text-brand-navy">We Plan</h3>
+            <p class="text-xs font-mono font-semibold text-brand-gold">With a little caffeine, and a lot of heart.</p>
+            <p class="text-sm text-slate-600">
+              Architecting media schedules, messaging angles, and distribution plans to ensure optimal ROI.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="p-6 rounded-2xl bg-brand-cream border border-brand-border shadow-xs space-y-3 relative group hover:-translate-y-1 transition-transform">
+            <span class="text-xs font-mono font-bold text-brand-accent">03 // PRODUCTION</span>
+            <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl font-bold">
+              ⚡
+            </div>
+            <h3 class="text-lg font-bold text-brand-navy">We Execute</h3>
+            <p class="text-xs font-mono font-semibold text-rose-600">See your ideas come to life.</p>
+            <p class="text-sm text-slate-600">
+              High-velocity creative design, video production, media buying, and flawless on-the-ground activations.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="p-6 rounded-2xl bg-brand-cream border border-brand-border shadow-xs space-y-3 relative group hover:-translate-y-1 transition-transform">
+            <span class="text-xs font-mono font-bold text-emerald-600">04 // RESULTS</span>
+            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl font-bold">
+              📊
+            </div>
+            <h3 class="text-lg font-bold text-brand-navy">We Deliver</h3>
+            <p class="text-xs font-mono font-semibold text-emerald-600">Only successful post campaign results.</p>
+            <p class="text-sm text-slate-600">
+              Measurable commercial outcomes, KPI over-delivery, and comprehensive transparency reports.
+            </p>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="p-6 rounded-2xl bg-brand-cream border border-brand-border shadow-xs space-y-3 relative group hover:-translate-y-1 transition-transform">
+            <span class="text-xs font-mono font-bold text-purple-600">05 // PARTNERSHIP</span>
+            <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl font-bold">
+              🥂
+            </div>
+            <h3 class="text-lg font-bold text-brand-navy">We Celebrate</h3>
+            <p class="text-xs font-mono font-semibold text-purple-600">Cheers to our joint success.</p>
+            <p class="text-sm text-slate-600">
+              Honoring relationships that grow into decade-long friendships and multi-year contract expansions.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 6. INSPIRATIONAL QUOTE 02: TANYA HYACINTH                                  -->
+    <!-- ========================================================================= -->
+    <section class="py-16 bg-brand-navy text-white relative overflow-hidden">
+      <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-brand-accent/20 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-4 relative z-10">
+        <span class="text-4xl text-brand-accent font-display">“</span>
+        <blockquote class="text-xl sm:text-2xl md:text-3xl font-display italic font-semibold leading-snug text-balance">
+          We go <span class="text-brand-accent not-italic font-extrabold uppercase tracking-wide">BIG</span>, because if you are not aiming for <span class="text-brand-gold not-italic font-extrabold uppercase tracking-wide">GREATNESS</span>, then what is the point?
+        </blockquote>
+        <p class="font-mono text-xs uppercase tracking-widest text-slate-400 font-bold pt-2">
+          &mdash; Tanya Hyacinth D’Silva-Fernandez &mdash;<br>
+          <span class="text-slate-500 text-[11px] font-normal">Chief Executive Officer, Advertising &amp; More</span>
+        </p>
+      </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 7. FEATURED CASE STUDIES / PORTFOLIO                                      -->
+    <!-- ========================================================================= -->
+    <section id="work" class="py-20 md:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div class="space-y-3">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-brand-accent text-xs font-mono font-bold uppercase">
+            Proven Track Record
+          </div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-navy tracking-tight">
+            Teamwork made the <span class="text-brand-accent">dream work</span>.
+          </h2>
+          <p class="text-slate-600 text-base sm:text-lg max-w-xl">
+            A few campaigns we're exceptionally proud of, and the verified results that came with them.
+          </p>
+        </div>
+        <div class="text-xs font-mono text-slate-500 bg-white border border-brand-border px-4 py-2 rounded-xl self-start md:self-auto">
+          ● 100% KPI Verified Client Deliveries
+        </div>
+      </div>
+
+      <!-- Case Studies Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Case 1: Nepal Earthquake Donation Drive -->
+        <article class="group rounded-3xl bg-white border border-brand-border overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="aspect-[16/10] overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=85" alt="Nepal Earthquake Relief" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-xs font-mono font-bold text-rose-600 border border-slate-200">
+                NGO Relief Drive
+              </div>
+              <div class="absolute bottom-4 right-4 bg-brand-navy/90 text-white px-3 py-1 rounded-lg text-xs font-mono font-semibold">
+                MERCY Malaysia
+              </div>
+            </div>
+
+            <div class="p-6 space-y-4">
+              <h3 class="text-xl font-bold text-brand-navy group-hover:text-brand-accent transition-colors">
+                Nepal Earthquake Donation Drive
+              </h3>
+              <p class="text-xs font-mono text-slate-500">
+                Campaign ideation, Facebook strategy, bilingual design, copywriting, A/B testing.
+              </p>
+              
+              <ul class="space-y-1.5 text-xs text-slate-700 font-medium pt-2">
+                <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">💯</span> 100% campaign success rate</li>
+                <li class="flex items-center gap-2"><span class="text-blue-500 font-bold">✅</span> Over-delivered client's primary KPI</li>
+                <li class="flex items-center gap-2"><span class="text-purple-500 font-bold">📈</span> Exceeded internal stretch targets</li>
+                <li class="flex items-center gap-2"><span class="text-amber-500 font-bold">🎉</span> Rewarded with subsequent multi-year mandates</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="p-6 pt-0">
+            <button onclick="openCaseModal('Nepal Earthquake Donation Drive', 'MERCY Malaysia', 'NGO Humanitarian Aid &bull; Facebook Strategy &bull; Bilingual Copywriting', 'When disaster struck Nepal, rapid response donor acquisition was critical. Advertising & More ideated, scripted, and optimized high-velocity Facebook ads with localized bilingual copy and emotional creative framing. The campaign smashed donation goals, outperforming baseline benchmarks by over 240% with zero wasted ad spend.')" class="w-full py-2.5 rounded-xl bg-brand-cream hover:bg-brand-creamDark border border-brand-border text-xs font-bold text-brand-navy transition-colors">
+              Read Case Details &rarr;
+            </button>
+          </div>
+        </article>
+
+        <!-- Case 2: Returning Expert Programme -->
+        <article class="group rounded-3xl bg-white border border-brand-border overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="aspect-[16/10] overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=85" alt="Returning Expert Talent" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-xs font-mono font-bold text-indigo-600 border border-slate-200">
+                Government Initiative
+              </div>
+              <div class="absolute bottom-4 right-4 bg-brand-navy/90 text-white px-3 py-1 rounded-lg text-xs font-mono font-semibold">
+                TalentCorp Malaysia
+              </div>
+            </div>
+
+            <div class="p-6 space-y-4">
+              <h3 class="text-xl font-bold text-brand-navy group-hover:text-brand-accent transition-colors">
+                Returning Expert Programme
+              </h3>
+              <p class="text-xs font-mono text-slate-500">
+                Campaign ideation, LinkedIn recruitment strategy, senior copywriting &amp; advertising.
+              </p>
+              
+              <ul class="space-y-1.5 text-xs text-slate-700 font-medium pt-2">
+                <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">💯</span> 100% campaign target delivery</li>
+                <li class="flex items-center gap-2"><span class="text-blue-500 font-bold">✅</span> Reached top overseas Malaysian professionals</li>
+                <li class="flex items-center gap-2"><span class="text-purple-500 font-bold">📈</span> Optimized LinkedIn sponsored content CPA</li>
+                <li class="flex items-center gap-2"><span class="text-amber-500 font-bold">🎉</span> Recognized by national policy makers</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="p-6 pt-0">
+            <button onclick="openCaseModal('Returning Expert Programme', 'TalentCorp Malaysia', 'Government Brain Gain &bull; LinkedIn Advertising &bull; Talent Acquisition', 'Tasked with repatriating skilled expatriate professionals, we designed an empathy-led LinkedIn advertising strategy targeting corporate leaders in London, Melbourne, Singapore, and New York. The campaign highlighted economic opportunity and family reunion, generating record-high application conversions.')" class="w-full py-2.5 rounded-xl bg-brand-cream hover:bg-brand-creamDark border border-brand-border text-xs font-bold text-brand-navy transition-colors">
+              Read Case Details &rarr;
+            </button>
+          </div>
+        </article>
+
+        <!-- Case 3: Whitney Houston & Siti Nurhaliza -->
+        <article class="group rounded-3xl bg-white border border-brand-border overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="aspect-[16/10] overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=85" alt="Whitney & Siti Memories" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-xs font-mono font-bold text-purple-600 border border-slate-200">
+                Music Entertainment
+              </div>
+              <div class="absolute bottom-4 right-4 bg-brand-navy/90 text-white px-3 py-1 rounded-lg text-xs font-mono font-semibold">
+                Universal Music
+              </div>
+            </div>
+
+            <div class="p-6 space-y-4">
+              <h3 class="text-xl font-bold text-brand-navy group-hover:text-brand-accent transition-colors">
+                Whitney Houston &amp; Siti ‘Memories’
+              </h3>
+              <p class="text-xs font-mono text-slate-500">
+                Historic cross-era music video premiere, YouTube advertising &amp; PR amplification.
+              </p>
+              
+              <ul class="space-y-1.5 text-xs text-slate-700 font-medium pt-2">
+                <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">💯</span> Historic music milestone hit</li>
+                <li class="flex items-center gap-2"><span class="text-blue-500 font-bold">✅</span> Viral YouTube video views across SEA</li>
+                <li class="flex items-center gap-2"><span class="text-purple-500 font-bold">📈</span> Multi-platform fan engagement surge</li>
+                <li class="flex items-center gap-2"><span class="text-amber-500 font-bold">🎉</span> Praised by Universal Music leadership</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="p-6 pt-0">
+            <button onclick="openCaseModal('Whitney Houston &amp; Siti Nurhaliza ‘Memories’', 'Universal Music Group', 'Entertainment PR &bull; YouTube Advertising &bull; Viral Fan Rollout', 'Universal Music entrusted Advertising & More with launching this historic musical tribute pairing Whitney Houston with Malaysia’s undisputed songstress Dato’ Sri Siti Nurhaliza. Through synchronized YouTube preroll blitzes, media press days, and influencer teasers, the release achieved record-setting regional streaming numbers.')" class="w-full py-2.5 rounded-xl bg-brand-cream hover:bg-brand-creamDark border border-brand-border text-xs font-bold text-brand-navy transition-colors">
+              Read Case Details &rarr;
+            </button>
+          </div>
+        </article>
+
+        <!-- Case 4: Tourism Malaysia Mobile App Prototype -->
+        <article class="group rounded-3xl bg-white border border-brand-border overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="aspect-[16/10] overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=800&q=85" alt="Tourism Malaysia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-xs font-mono font-bold text-emerald-600 border border-slate-200">
+                Digital UX/UI Architecture
+              </div>
+              <div class="absolute bottom-4 right-4 bg-brand-navy/90 text-white px-3 py-1 rounded-lg text-xs font-mono font-semibold">
+                Tourism Malaysia
+              </div>
+            </div>
+
+            <div class="p-6 space-y-4">
+              <h3 class="text-xl font-bold text-brand-navy group-hover:text-brand-accent transition-colors">
+                Tourism Malaysia App Prototype
+              </h3>
+              <p class="text-xs font-mono text-slate-500">
+                Government travel discovery platform, UX/UI strategy &amp; mobile app prototype.
+              </p>
+              
+              <ul class="space-y-1.5 text-xs text-slate-700 font-medium pt-2">
+                <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">📱</span> Frictionless travel discovery</li>
+                <li class="flex items-center gap-2"><span class="text-blue-500 font-bold">✅</span> Interactive itinerary planning engine</li>
+                <li class="flex items-center gap-2"><span class="text-purple-500 font-bold">📈</span> Multi-lingual localization framework</li>
+                <li class="flex items-center gap-2"><span class="text-amber-500 font-bold">🎉</span> Approved by national tourism board</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="p-6 pt-0">
+            <button onclick="openCaseModal('Tourism Malaysia Mobile App Prototype', 'Ministry of Tourism', 'Mobile UX/UI &bull; Spatial Discovery &bull; Interactive Prototype', 'To modernize travel discovery for international tourists visiting Malaysia, we prototyped a mobile application integrating regional cultural landmarks, eco-tourism trails, culinary guides, and transit info into a unified, lightweight interface.')" class="w-full py-2.5 rounded-xl bg-brand-cream hover:bg-brand-creamDark border border-brand-border text-xs font-bold text-brand-navy transition-colors">
+              Read Case Details &rarr;
+            </button>
+          </div>
+        </article>
+
+        <!-- Case 5: Happy Hop Trilingual Campaign -->
+        <article class="group rounded-3xl bg-white border border-brand-border overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="aspect-[16/10] overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?auto=format&fit=crop&w=800&q=85" alt="Happy Hop Campaign" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-xs font-mono font-bold text-amber-600 border border-slate-200">
+                Parenting Brand Growth
+              </div>
+              <div class="absolute bottom-4 right-4 bg-brand-navy/90 text-white px-3 py-1 rounded-lg text-xs font-mono font-semibold">
+                Happy Hop
+              </div>
+            </div>
+
+            <div class="p-6 space-y-4">
+              <h3 class="text-xl font-bold text-brand-navy group-hover:text-brand-accent transition-colors">
+                Happy Hop Trilingual Campaign
+              </h3>
+              <p class="text-xs font-mono text-slate-500">
+                Scriptwriting in 3 languages, professional voiceover, video production &amp; ads.
+              </p>
+              
+              <ul class="space-y-1.5 text-xs text-slate-700 font-medium pt-2">
+                <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">💯</span> 100% campaign target smash</li>
+                <li class="flex items-center gap-2"><span class="text-blue-500 font-bold">✅</span> Trilingual reach: English, Malay &amp; Mandarin</li>
+                <li class="flex items-center gap-2"><span class="text-purple-500 font-bold">📈</span> 4.8x ROAS on consumer ecommerce sales</li>
+                <li class="flex items-center gap-2"><span class="text-amber-500 font-bold">🎉</span> Ongoing seasonal retainer renewals</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="p-6 pt-0">
+            <button onclick="openCaseModal('Happy Hop Social Media Campaign', 'Happy Hop Malaysia', 'Trilingual Video Production &bull; Performance Social Ads &bull; ROAS Acceleration', 'Reaching Malaysian households requires nuanced multilingual storytelling. Advertising & More crafted native video ads in English, Bahasa Malaysia, and Mandarin with localized cultural humour and parenting pain-points, achieving a 4.8x direct return on ad spend.')" class="w-full py-2.5 rounded-xl bg-brand-cream hover:bg-brand-creamDark border border-brand-border text-xs font-bold text-brand-navy transition-colors">
+              Read Case Details &rarr;
+            </button>
+          </div>
+        </article>
+
+        <!-- Case 6: AirAsia Regional Facebook Launchpad -->
+        <article class="group rounded-3xl bg-white border border-brand-border overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="aspect-[16/10] overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=85" alt="AirAsia Regional Flights" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-xs font-mono font-bold text-red-600 border border-slate-200">
+                Aviation Brand Launch
+              </div>
+              <div class="absolute bottom-4 right-4 bg-brand-navy/90 text-white px-3 py-1 rounded-lg text-xs font-mono font-semibold">
+                AirAsia Global
+              </div>
+            </div>
+
+            <div class="p-6 space-y-4">
+              <h3 class="text-xl font-bold text-brand-navy group-hover:text-brand-accent transition-colors">
+                AirAsia Philippines &amp; Japan Launches
+              </h3>
+              <p class="text-xs font-mono text-slate-500">
+                Regional fan acquisition, route opening blitzes &amp; daily tactical social campaigns.
+              </p>
+              
+              <ul class="space-y-1.5 text-xs text-slate-700 font-medium pt-2">
+                <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✈️</span> Multi-country brand page launches</li>
+                <li class="flex items-center gap-2"><span class="text-blue-500 font-bold">✅</span> Millions of new followers acquired</li>
+                <li class="flex items-center gap-2"><span class="text-purple-500 font-bold">📈</span> 24/7 rapid tactical campaign management</li>
+                <li class="flex items-center gap-2"><span class="text-amber-500 font-bold">🎉</span> Longstanding consultant partnership since 2011</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="p-6 pt-0">
+            <button onclick="openCaseModal('AirAsia Multi-Region Brand Launches', 'AirAsia Group', 'Aviation Expansion &bull; Social Community Growth &bull; Route Promotions', 'Serving as AirAsia’s go-to digital media consultant across the Philippines, Japan, Hawaii, and daily tactical campaigns. Managed rapid-turnaround flash sale promotions with maximized passenger booking conversions.')" class="w-full py-2.5 rounded-xl bg-brand-cream hover:bg-brand-creamDark border border-brand-border text-xs font-bold text-brand-navy transition-colors">
+              Read Case Details &rarr;
+            </button>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 8. CLIENT TESTIMONIALS ("WHAT OUR CLIENTS SAY")                           -->
+    <!-- ========================================================================= -->
+    <section id="testimonials" class="py-20 md:py-28 bg-white border-y border-brand-border/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto space-y-3 mb-14">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-mono font-bold uppercase">
+            Client Voices
+          </span>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-navy tracking-tight">
+            What our clients say.
+          </h2>
+          <p class="text-slate-600 text-base sm:text-lg">
+            Real words from the brands who trust us, many of whom became friends along the way.
+          </p>
+        </div>
+
+        <!-- Clean Responsive Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Review 1: LinkedIn -->
+          <div class="p-6 sm:p-7 rounded-2xl bg-brand-cream border border-brand-border flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <img src="assets/linkedin.png" alt="LinkedIn" class="h-6 object-contain">
+                <span class="text-amber-500 text-sm">★★★★★</span>
+              </div>
+              <p class="text-sm text-slate-700 leading-relaxed italic">
+                “Congratulations for being the highest earners for LinkedIn. As a token of my appreciation, I would like to reward your hard work. Thank you for a job well done!”
+              </p>
+            </div>
+            <div class="pt-3 border-t border-brand-border/60">
+              <p class="text-xs font-bold text-brand-navy">Regional Account Director</p>
+              <p class="text-[11px] font-mono text-slate-500">LinkedIn Corporation, Southeast Asia</p>
+            </div>
+          </div>
+
+          <!-- Review 2: Bosch -->
+          <div class="p-6 sm:p-7 rounded-2xl bg-brand-cream border border-brand-border flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <img src="assets/bosch.png" alt="Bosch" class="h-6 object-contain">
+                <span class="text-amber-500 text-sm">★★★★★</span>
+              </div>
+              <p class="text-sm text-slate-700 leading-relaxed italic">
+                “Never failed to provide sound advice and solutions to optimise Bosch’s opportunities on digital media. Impeccable professional working ethics and pleasant to work with. Highly recommend.”
+              </p>
+            </div>
+            <div class="pt-3 border-t border-brand-border/60">
+              <p class="text-xs font-bold text-brand-navy">Corporate Communications &amp; Brand Head</p>
+              <p class="text-[11px] font-mono text-slate-500">Bosch Southeast Asia</p>
+            </div>
+          </div>
+
+          <!-- Review 3: Universal Music Group -->
+          <div class="p-6 sm:p-7 rounded-2xl bg-brand-cream border border-brand-border flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <img src="assets/universal.png" alt="Universal Music" class="h-7 object-contain">
+                <span class="text-amber-500 text-sm">★★★★★</span>
+              </div>
+              <p class="text-sm text-slate-700 leading-relaxed italic">
+                “Managed our campaigns on Facebook, Google, YouTube &amp; Mobile for artist launches, showcases &amp; concerts. Genuine interest in our business and an open, honest approach.”
+              </p>
+            </div>
+            <div class="pt-3 border-t border-brand-border/60">
+              <p class="text-xs font-bold text-brand-navy">Label Manager</p>
+              <p class="text-[11px] font-mono text-slate-500">Universal Music Group</p>
+            </div>
+          </div>
+
+          <!-- Review 4: Dentsu Media -->
+          <div class="p-6 sm:p-7 rounded-2xl bg-brand-cream border border-brand-border flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="font-extrabold text-brand-navy text-sm font-mono tracking-wider">DENTSU MEDIA</span>
+                <span class="text-amber-500 text-sm">★★★★★</span>
+              </div>
+              <p class="text-sm text-slate-700 leading-relaxed italic">
+                “Fine staff who has performed outstandingly on all Dentsu Media campaigns. A real asset that gives your company an edge over the competition. Keep up the good work!”
+              </p>
+            </div>
+            <div class="pt-3 border-t border-brand-border/60">
+              <p class="text-xs font-bold text-brand-navy">Associate Digital Director</p>
+              <p class="text-[11px] font-mono text-slate-500">Dentsu Media Malaysia</p>
+            </div>
+          </div>
+
+          <!-- Review 5: AirAsia -->
+          <div class="p-6 sm:p-7 rounded-2xl bg-brand-cream border border-brand-border flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <img src="assets/airasia.png" alt="AirAsia" class="h-6 object-contain">
+                <span class="text-amber-500 text-sm">★★★★★</span>
+              </div>
+              <p class="text-sm text-slate-700 leading-relaxed italic">
+                “Tanya has been AirAsia’s go-to consultant managing our Facebook campaigns with the best recommendations and maximum ROI. Reliable, dedicated, and cheerful even during 24/7 deadlines.”
+              </p>
+            </div>
+            <div class="pt-3 border-t border-brand-border/60">
+              <p class="text-xs font-bold text-brand-navy">Group Head of Social Media &amp; Storytelling</p>
+              <p class="text-[11px] font-mono text-slate-500">AirAsia Global</p>
+            </div>
+          </div>
+
+          <!-- Review 6: GroupM / M/Six&Partners -->
+          <div class="p-6 sm:p-7 rounded-2xl bg-brand-cream border border-brand-border flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="font-extrabold text-brand-navy text-sm font-mono tracking-wider">M/SIX &amp; PARTNERS</span>
+                <span class="text-amber-500 text-sm">★★★★★</span>
+              </div>
+              <p class="text-sm text-slate-700 leading-relaxed italic">
+                “In 12 long years of working together, one of the very few partners who puts client’s campaign objectives ahead of selling products. Solid proposals and exceptional integrity.”
+              </p>
+            </div>
+            <div class="pt-3 border-t border-brand-border/60">
+              <p class="text-xs font-bold text-brand-navy">Associate Director</p>
+              <p class="text-[11px] font-mono text-slate-500">M/Six &amp; Partners / GroupM</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 9. MEET YOUR DREAM TEAM                                                   -->
+    <!-- ========================================================================= -->
+    <section id="team" class="py-20 md:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-brand-accent text-xs font-mono font-bold uppercase">
+          Leadership
+        </span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-navy tracking-tight">
+          Meet your dream team.
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg">
+          Decades of proven leadership at GroupM, Dentsu, AirAsia, Singapore Tourism Board, and ExxonMobil.
+        </p>
+      </div>
+
+      <!-- 3 Key Leaders -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Tanya Hyacinth D’Silva-Fernandez -->
+        <div class="rounded-3xl bg-white border border-brand-border overflow-hidden shadow-xs hover:shadow-lg transition-all space-y-4 p-6 sm:p-8 flex flex-col justify-between">
+          <div class="space-y-5">
+            <div class="aspect-square rounded-2xl overflow-hidden relative shadow-inner">
+              <img src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?auto=format&fit=crop&w=600&q=85" alt="Tanya Hyacinth D'Silva-Fernandez" class="w-full h-full object-cover">
+              <div class="absolute bottom-3 left-3 bg-brand-navy/90 text-white text-[10px] font-mono px-2.5 py-1 rounded-md">
+                Chief Executive Officer
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-bold text-brand-navy">Tanya Hyacinth D’Silva-Fernandez</h3>
+              <p class="text-xs font-mono text-brand-accent font-semibold mt-0.5">CEO &amp; Founder</p>
+            </div>
+
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Veteran advertising strategist and agency leader. Former Associate Director at M/Six&amp;Partners, PR Head at Curtin University, Creative Director for DC Comics Superheroes PR, and AirAsia digital consultant.
+            </p>
+
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-mono text-[10px]">GroupM / M/Six</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-mono text-[10px]">AirAsia</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-mono text-[10px]">Dentsu</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-mono text-[10px]">Publicis</span>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-100">
+            <span class="text-xs font-mono text-slate-400">Direct Focus: Strategy &amp; Growth</span>
+          </div>
+        </div>
+
+        <!-- Mazin Ameen Siraj -->
+        <div class="rounded-3xl bg-white border border-brand-border overflow-hidden shadow-xs hover:shadow-lg transition-all space-y-4 p-6 sm:p-8 flex flex-col justify-between">
+          <div class="space-y-5">
+            <div class="aspect-square rounded-2xl overflow-hidden relative shadow-inner">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=85" alt="Mazin Ameen Siraj" class="w-full h-full object-cover">
+              <div class="absolute bottom-3 left-3 bg-brand-navy/90 text-white text-[10px] font-mono px-2.5 py-1 rounded-md">
+                Head of Strategy &amp; Operations
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-bold text-brand-navy">Mazin Ameen Siraj</h3>
+              <p class="text-xs font-mono text-brand-gold font-semibold mt-0.5">Co-Founder &amp; Strategic Advisor</p>
+            </div>
+
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Global operational and marketing expert. Former Assistant Director of Retail at the Singapore Tourism Board, Public Relations &amp; Government Affairs at ExxonMobil, Marketing at Lexus &amp; Division Head at Honda.
+            </p>
+
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-mono text-[10px]">Singapore Tourism Board</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-mono text-[10px]">ExxonMobil</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-mono text-[10px]">Lexus</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-mono text-[10px]">Honda</span>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-100">
+            <span class="text-xs font-mono text-slate-400">Direct Focus: Global Enterprise Ops</span>
+          </div>
+        </div>
+
+        <!-- Wong Kok Jun (KJ) -->
+        <div class="rounded-3xl bg-white border border-brand-border overflow-hidden shadow-xs hover:shadow-lg transition-all space-y-4 p-6 sm:p-8 flex flex-col justify-between">
+          <div class="space-y-5">
+            <div class="aspect-square rounded-2xl overflow-hidden relative shadow-inner">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=85" alt="Wong Kok Jun KJ" class="w-full h-full object-cover">
+              <div class="absolute bottom-3 left-3 bg-brand-navy/90 text-white text-[10px] font-mono px-2.5 py-1 rounded-md">
+                Creative &amp; Technical Partner
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-bold text-brand-navy">Wong Kok Jun (KJ)</h3>
+              <p class="text-xs font-mono text-indigo-600 font-semibold mt-0.5">Partner &amp; Creative Tech Director</p>
+            </div>
+
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Spearheading digital architecture, experiential event design, interactive campaign funnels, and production technology across all 10 international hubs.
+            </p>
+
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-mono text-[10px]">Creative Tech</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-mono text-[10px]">Experiential UI</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-mono text-[10px]">Digital Architecture</span>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-100">
+            <span class="text-xs font-mono text-slate-400">Direct Focus: Technical Innovation</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 10. TEN OFFICES, ONE FRIENDLY TEAM (GLOBAL HUBS)                          -->
+    <!-- ========================================================================= -->
+    <section id="offices" class="py-20 md:py-28 bg-brand-navy text-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800 text-slate-300 text-xs font-mono font-bold uppercase border border-slate-700">
+            Worldwide Network
+          </span>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
+            Ten offices, <span class="text-brand-accent">one friendly team</span>.
+          </h2>
+          <p class="text-slate-400 text-base sm:text-lg">
+            Wherever your target market lives, our boots are on the ground with deep local cultural fluency.
+          </p>
+        </div>
+
+        <!-- 10 Global Offices Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+
+          <!-- 1. Malaysia -->
+          <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-brand-accent hover:bg-slate-800 transition-all text-center space-y-2 group">
+            <span class="text-3xl group-hover:scale-110 transition-transform inline-block">🇲🇾</span>
+            <h3 class="font-bold text-white text-base">Kuala Lumpur</h3>
+            <p class="text-xs font-mono text-brand-gold uppercase tracking-wider font-semibold">Malaysia (HQ)</p>
+          </div>
+
+          <!-- 2. Dubai -->
+          <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-brand-accent hover:bg-slate-800 transition-all text-center space-y-2 group">
+            <span class="text-3xl group-hover:scale-110 transition-transform inline-block">🇦🇪</span>
+            <h3 class="font-bold text-white text-base">Dubai</h3>
+            <p class="text-xs font-mono text-slate-400 uppercase tracking-wider">U.A.E.</p>
+          </div>
+
+          <!-- 3. Jakarta -->
+          <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-brand-accent hover:bg-slate-800 transition-all text-center space-y-2 group">
+            <span class="text-3xl group-hover:scale-110 transition-transform inline-block">🇮🇩</span>
+            <h3 class="font-bold text-white text-base">Jakarta</h3>
+            <p class="text-xs font-mono text-slate-400 uppercase tracking-wider">Indonesia</p>
+          </div>
+
+          <!-- 4. Taipei -->
+          <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-brand-accent hover:bg-slate-800 transition-all text-center space-y-2 group">
+            <span class="text-3xl group-hover:scale-110 transition-transform inline-block">🇹🇼</span>
+            <h3 class="font-bold text-white text-base">Taipei</h3>
+            <p class="text-xs font-mono text-slate-400 uppercase tracking-wider">Taiwan</p>
+          </div>
+
+          <!-- 5. Ottawa -->
+          <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-brand-accent hover:bg-slate-800 transition-all text-center space-y-2 group">
+            <span class="text-3xl group-hover:scale-110 transition-transform inline-block">🇨🇦</span>
+            <h3 class="font-bold text-white text-base">Ottawa</h3>
+            <p class="text-xs font-mono text-slate-400 uppercase tracking-wider">Canada</p>
+          </div>
+
+          <!-- 6. Hong Kong -->
+          <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-brand-accent hover:bg-slate-800 transition-all text-center space-y-2 group">
+            <span class="text-3xl group-hover:scale-110 transition-transform inline-block">🇭🇰</span>
+            <h3 class="font-bold text-white text-base">Kowloon</h3>
+            <p class="text-xs font-mono text-slate-400 uppercase tracking-wider">Hong Kong</p>
+          </div>
+
+          <!-- 7. New Delhi -->
+          <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-brand-accent hover:bg-slate-800 transition-all text-center space-y-2 group">
+            <span class="text-3xl group-hover:scale-110 transition-transform inline-block">🇮🇳</span>
+            <h3 class="font-bold text-white text-base">New Delhi</h3>
+            <p class="text-xs font-mono text-slate-400 uppercase tracking-wider">India</p>
+          </div>
+
+          <!-- 8. Islamabad -->
+          <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-brand-accent hover:bg-slate-800 transition-all text-center space-y-2 group">
+            <span class="text-3xl group-hover:scale-110 transition-transform inline-block">🇵🇰</span>
+            <h3 class="font-bold text-white text-base">Islamabad</h3>
+            <p class="text-xs font-mono text-slate-400 uppercase tracking-wider">Pakistan</p>
+          </div>
+
+          <!-- 9. Auckland -->
+          <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-brand-accent hover:bg-slate-800 transition-all text-center space-y-2 group">
+            <span class="text-3xl group-hover:scale-110 transition-transform inline-block">🇳🇿</span>
+            <h3 class="font-bold text-white text-base">Auckland</h3>
+            <p class="text-xs font-mono text-slate-400 uppercase tracking-wider">New Zealand</p>
+          </div>
+
+          <!-- 10. Singapore -->
+          <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-brand-accent hover:bg-slate-800 transition-all text-center space-y-2 group">
+            <span class="text-3xl group-hover:scale-110 transition-transform inline-block">🇸🇬</span>
+            <h3 class="font-bold text-white text-base">Marina</h3>
+            <p class="text-xs font-mono text-slate-400 uppercase tracking-wider">Singapore</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 11. BOOK A HAPPY MEETING (INTERACTIVE BEVERAGE SELECTOR & FORM)            -->
+    <!-- ========================================================================= -->
+    <section id="booking" class="py-20 md:py-28 bg-brand-cream relative">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="rounded-3xl bg-white border border-brand-border shadow-xl p-8 sm:p-12 space-y-8">
+          
+          <!-- Section Title -->
+          <div class="text-center max-w-2xl mx-auto space-y-3">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-mono font-bold uppercase">
+              Hospitality First
+            </div>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-navy tracking-tight">
+              Book a happy meeting.
+            </h2>
+            <p class="text-xl sm:text-2xl font-display italic text-brand-accent font-bold">
+              The drinks are on us.
+            </p>
+            <p class="text-slate-600 text-sm sm:text-base">
+              Choose your favorite drink below. Whether we meet virtually or at one of our 10 international hubs, we'll have your refreshment ready.
+            </p>
+          </div>
+
+          <!-- Interactive Beverage Selector Grid -->
+          <div>
+            <label class="block text-xs font-mono uppercase tracking-wider text-slate-500 font-bold mb-3 text-center">
+              Step 1: Select Your Welcome Drink
+            </label>
+
+            <div class="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-9 gap-3 text-center">
+              
+              <button type="button" onclick="selectDrink('Coffee ☕')" class="drink-btn p-3 rounded-2xl border-2 border-brand-accent bg-orange-50 text-slate-800 hover:scale-105 transition-all flex flex-col items-center gap-1.5 shadow-xs" data-drink="Coffee ☕">
+                <span class="text-2xl">☕</span>
+                <span class="text-xs font-bold leading-tight">Coffee</span>
+              </button>
+
+              <button type="button" onclick="selectDrink('Tea 🍵')" class="drink-btn p-3 rounded-2xl border border-brand-border bg-white text-slate-700 hover:scale-105 transition-all flex flex-col items-center gap-1.5" data-drink="Tea 🍵">
+                <span class="text-2xl">🍵</span>
+                <span class="text-xs font-bold leading-tight">Tea</span>
+              </button>
+
+              <button type="button" onclick="selectDrink('Craft Beer 🍺')" class="drink-btn p-3 rounded-2xl border border-brand-border bg-white text-slate-700 hover:scale-105 transition-all flex flex-col items-center gap-1.5" data-drink="Craft Beer 🍺">
+                <span class="text-2xl">🍺</span>
+                <span class="text-xs font-bold leading-tight">Beer</span>
+              </button>
+
+              <button type="button" onclick="selectDrink('White Wine 🍷')" class="drink-btn p-3 rounded-2xl border border-brand-border bg-white text-slate-700 hover:scale-105 transition-all flex flex-col items-center gap-1.5" data-drink="White Wine 🍷">
+                <span class="text-2xl">🥂</span>
+                <span class="text-xs font-bold leading-tight">White Wine</span>
+              </button>
+
+              <button type="button" onclick="selectDrink('Red Wine 🍷')" class="drink-btn p-3 rounded-2xl border border-brand-border bg-white text-slate-700 hover:scale-105 transition-all flex flex-col items-center gap-1.5" data-drink="Red Wine 🍷">
+                <span class="text-2xl">🍷</span>
+                <span class="text-xs font-bold leading-tight">Red Wine</span>
+              </button>
+
+              <button type="button" onclick="selectDrink('Whiskey 🥃')" class="drink-btn p-3 rounded-2xl border border-brand-border bg-white text-slate-700 hover:scale-105 transition-all flex flex-col items-center gap-1.5" data-drink="Whiskey 🥃">
+                <span class="text-2xl">🥃</span>
+                <span class="text-xs font-bold leading-tight">Whiskey</span>
+              </button>
+
+              <button type="button" onclick="selectDrink('Gin & Tonic 🍸')" class="drink-btn p-3 rounded-2xl border border-brand-border bg-white text-slate-700 hover:scale-105 transition-all flex flex-col items-center gap-1.5" data-drink="Gin & Tonic 🍸">
+                <span class="text-2xl">🍸</span>
+                <span class="text-xs font-bold leading-tight">G&amp;T</span>
+              </button>
+
+              <button type="button" onclick="selectDrink('Martini 🍸')" class="drink-btn p-3 rounded-2xl border border-brand-border bg-white text-slate-700 hover:scale-105 transition-all flex flex-col items-center gap-1.5" data-drink="Martini 🍸">
+                <span class="text-2xl">🍹</span>
+                <span class="text-xs font-bold leading-tight">Martini</span>
+              </button>
+
+              <button type="button" onclick="selectDrink('Piña Colada 🍹')" class="drink-btn p-3 rounded-2xl border border-brand-border bg-white text-slate-700 hover:scale-105 transition-all flex flex-col items-center gap-1.5" data-drink="Piña Colada 🍹">
+                <span class="text-2xl">🥥</span>
+                <span class="text-xs font-bold leading-tight">Piña Colada</span>
+              </button>
+
+            </div>
+
+            <!-- Dynamic Drink Selection Feedback -->
+            <div class="mt-4 p-3 rounded-xl bg-orange-50/70 border border-orange-200/60 text-center text-xs font-medium text-slate-700">
+              Selected Beverage: <strong id="selected-drink-display" class="text-brand-accent font-bold">Coffee ☕</strong> &bull; We'll have it freshly prepared!
+            </div>
+          </div>
+
+          <!-- Meeting Form -->
+          <form id="happy-meeting-form" onsubmit="handleMeetingSubmit(event)" class="space-y-6 pt-2">
+            <input type="hidden" id="selected-drink-input" value="Coffee ☕">
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              
+              <div>
+                <label for="client-name" class="block text-xs font-mono font-bold text-slate-700 uppercase mb-2">
+                  Your Full Name *
+                </label>
+                <input type="text" id="client-name" required placeholder="e.g. Sarah Jenkins" class="w-full px-4 py-3.5 rounded-xl border border-brand-border focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 outline-none text-sm transition-all">
+              </div>
+
+              <div>
+                <label for="client-email" class="block text-xs font-mono font-bold text-slate-700 uppercase mb-2">
+                  Corporate Email *
+                </label>
+                <input type="email" id="client-email" required placeholder="sarah@company.com" class="w-full px-4 py-3.5 rounded-xl border border-brand-border focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 outline-none text-sm transition-all">
+              </div>
+
+              <div>
+                <label for="client-phone" class="block text-xs font-mono font-bold text-slate-700 uppercase mb-2">
+                  Phone / WhatsApp *
+                </label>
+                <input type="tel" id="client-phone" required placeholder="+60 12 345 6789" class="w-full px-4 py-3.5 rounded-xl border border-brand-border focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 outline-none text-sm transition-all">
+              </div>
+
+              <div>
+                <label for="client-company" class="block text-xs font-mono font-bold text-slate-700 uppercase mb-2">
+                  Company / Organization
+                </label>
+                <input type="text" id="client-company" placeholder="e.g. Global Ventures Ltd" class="w-full px-4 py-3.5 rounded-xl border border-brand-border focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 outline-none text-sm transition-all">
+              </div>
+
+              <div>
+                <label for="meeting-hub" class="block text-xs font-mono font-bold text-slate-700 uppercase mb-2">
+                  Meeting Preference / Location
+                </label>
+                <select id="meeting-hub" class="w-full px-4 py-3.5 rounded-xl border border-brand-border focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 outline-none text-sm bg-white transition-all">
+                  <option value="virtual">Virtual Video Conference (Zoom / Google Meet)</option>
+                  <option value="kl">Kuala Lumpur Office (Malaysia HQ)</option>
+                  <option value="dubai">Dubai Office (U.A.E.)</option>
+                  <option value="singapore">Marina Office (Singapore)</option>
+                  <option value="jakarta">Jakarta Office (Indonesia)</option>
+                  <option value="other">Other International Hub (Taipei / Ottawa / Hong Kong / etc.)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="service-interest" class="block text-xs font-mono font-bold text-slate-700 uppercase mb-2">
+                  Primary Capability of Interest
+                </label>
+                <select id="service-interest" class="w-full px-4 py-3.5 rounded-xl border border-brand-border focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 outline-none text-sm bg-white transition-all">
+                  <option value="all">Full Integrated Campaign (360° Strategy)</option>
+                  <option value="media">Digital Advertising &amp; Media Buying</option>
+                  <option value="events">Corporate Events, Experiential &amp; Retreats</option>
+                  <option value="creative">Creative Design, Video &amp; Website Dev</option>
+                  <option value="pr">PR, Comms &amp; Crisis Management</option>
+                  <option value="more">&amp; More (Bespoke Scope)</option>
+                </select>
+              </div>
+
+            </div>
+
+            <div>
+              <label for="project-brief" class="block text-xs font-mono font-bold text-slate-700 uppercase mb-2">
+                Short Brief / Goals / Timeline
+              </label>
+              <textarea id="project-brief" rows="3" placeholder="Tell us about your upcoming campaign, target timeline, or what you'd like us to collaborate on..." class="w-full px-4 py-3 rounded-xl border border-brand-border focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 outline-none text-sm transition-all"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-4 rounded-xl bg-brand-accent hover:bg-brand-accentHover text-white font-extrabold text-base glow-accent transition-all transform active:scale-98 flex items-center justify-center gap-2">
+              <span>Confirm &amp; Schedule Happy Meeting</span>
+              <span>&rarr;</span>
+            </button>
+
+            <p class="text-center text-[11px] font-mono text-slate-500">
+              🔒 Bilateral confidentiality assured &bull; 100% Zero-Spam Guarantee &bull; Direct executive response within 2 hours
+            </p>
+          </form>
+
+          <!-- Success Feedback Card (Hidden by Default) -->
+          <div id="form-success-card" class="hidden p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-3">
+            <span class="text-4xl">🎉</span>
+            <h3 class="text-xl font-bold text-emerald-900">Your Happy Meeting is Scheduled!</h3>
+            <p class="text-sm text-emerald-800 max-w-md mx-auto">
+              Thank you! Our client director has logged your brief and confirmed your complimentary welcome drink. A calendar invite has been dispatched to your email.
+            </p>
+            <button onclick="resetMeetingForm()" class="px-5 py-2 rounded-xl bg-white border border-emerald-300 text-xs font-bold text-emerald-900 hover:bg-emerald-100 transition-colors">
+              Schedule Another Inquiry
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 12. KNOWLEDGE HUB: INTERACTIVE QUIZZES & READS                             -->
+    <!-- ========================================================================= -->
+    <section id="knowledge" class="py-20 md:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-14">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-mono font-bold uppercase">
+          Interactive Hub
+        </span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-navy tracking-tight">
+          Latest quizzes &amp; reads.
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg">
+          Test your marketing acumen, win strategy consult prizes, and explore our newest thought leadership.
+        </p>
+      </div>
+
+      <!-- 2 Columns: Quizzes (Left) + Articles (Right) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Left: 3 Interactive Quizzes (6 cols) -->
+        <div class="lg:col-span-6 space-y-4">
+          <h3 class="text-xs font-mono uppercase tracking-widest text-slate-400 font-bold mb-2">
+            Interactive Skill Quizzes (Win Prizes)
+          </h3>
+
+          <!-- Quiz 1 -->
+          <div class="p-6 rounded-2xl bg-white border border-brand-border hover:border-brand-accent shadow-xs hover:shadow-md transition-all flex items-center justify-between gap-4 group">
+            <div class="space-y-1">
+              <span class="text-[10px] font-mono uppercase text-brand-accent font-bold">Quiz 01 &bull; 3 Minutes</span>
+              <h4 class="text-base font-bold text-brand-navy group-hover:text-brand-accent transition-colors">
+                Facebook Advertising Quiz
+              </h4>
+              <p class="text-xs text-slate-500">Test algorithm updates, attribution windows, and creative fatigue fixes.</p>
+            </div>
+            <button onclick="openQuizModal('Facebook Advertising Quiz')" class="px-4 py-2.5 rounded-xl bg-brand-navy group-hover:bg-brand-accent text-white font-bold text-xs whitespace-nowrap transition-colors">
+              Take Quiz 🎯
+            </button>
+          </div>
+
+          <!-- Quiz 2 -->
+          <div class="p-6 rounded-2xl bg-white border border-brand-border hover:border-brand-accent shadow-xs hover:shadow-md transition-all flex items-center justify-between gap-4 group">
+            <div class="space-y-1">
+              <span class="text-[10px] font-mono uppercase text-brand-gold font-bold">Quiz 02 &bull; 3 Minutes</span>
+              <h4 class="text-base font-bold text-brand-navy group-hover:text-brand-accent transition-colors">
+                Website Design &amp; UX Quiz
+              </h4>
+              <p class="text-xs text-slate-500">Find out if your corporate website is leaking mobile conversion revenue.</p>
+            </div>
+            <button onclick="openQuizModal('Website Design & UX Quiz')" class="px-4 py-2.5 rounded-xl bg-brand-navy group-hover:bg-brand-accent text-white font-bold text-xs whitespace-nowrap transition-colors">
+              Take Quiz 🎯
+            </button>
+          </div>
+
+          <!-- Quiz 3 -->
+          <div class="p-6 rounded-2xl bg-white border border-brand-border hover:border-brand-accent shadow-xs hover:shadow-md transition-all flex items-center justify-between gap-4 group">
+            <div class="space-y-1">
+              <span class="text-[10px] font-mono uppercase text-purple-600 font-bold">Quiz 03 &bull; 3 Minutes</span>
+              <h4 class="text-base font-bold text-brand-navy group-hover:text-brand-accent transition-colors">
+                Traditional vs. Digital Marketing Quiz
+              </h4>
+              <p class="text-xs text-slate-500">Calculate the ideal omnichannel allocation split for your industry.</p>
+            </div>
+            <button onclick="openQuizModal('Traditional vs. Digital Marketing Quiz')" class="px-4 py-2.5 rounded-xl bg-brand-navy group-hover:bg-brand-accent text-white font-bold text-xs whitespace-nowrap transition-colors">
+              Take Quiz 🎯
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Right: 3 Latest Blogs / Editorial Articles (6 cols) -->
+        <div class="lg:col-span-6 space-y-4">
+          <h3 class="text-xs font-mono uppercase tracking-widest text-slate-400 font-bold mb-2">
+            Latest Industry Editorial
+          </h3>
+
+          <!-- Article 1 -->
+          <div class="p-6 rounded-2xl bg-white border border-brand-border shadow-xs hover:shadow-md transition-all space-y-2 group">
+            <div class="flex items-center gap-2 text-[10px] font-mono text-slate-400">
+              <span class="text-brand-accent font-bold">EDITORIAL</span>
+              <span>&bull;</span>
+              <span>5 Min Read</span>
+            </div>
+            <h4 class="text-base font-bold text-brand-navy group-hover:text-brand-accent transition-colors">
+              Why every government body should have a perfect website
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Public sector digital accessibility, trust signaling, citizen user-journeys, and reducing offline bureaucratic congestion through modern UX architecture.
+            </p>
+          </div>
+
+          <!-- Article 2 -->
+          <div class="p-6 rounded-2xl bg-white border border-brand-border shadow-xs hover:shadow-md transition-all space-y-2 group">
+            <div class="flex items-center gap-2 text-[10px] font-mono text-slate-400">
+              <span class="text-brand-gold font-bold">BUSINESS GROWTH</span>
+              <span>&bull;</span>
+              <span>4 Min Read</span>
+            </div>
+            <h4 class="text-base font-bold text-brand-navy group-hover:text-brand-accent transition-colors">
+              Why having a modern website is essential for your business
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              How sub-second page loads, mobile responsiveness, and clean value proposition copy outperform complex bloat in winning institutional clients.
+            </p>
+          </div>
+
+          <!-- Article 3 -->
+          <div class="p-6 rounded-2xl bg-white border border-brand-border shadow-xs hover:shadow-md transition-all space-y-2 group">
+            <div class="flex items-center gap-2 text-[10px] font-mono text-slate-400">
+              <span class="text-emerald-600 font-bold">SEARCH STRATEGY</span>
+              <span>&bull;</span>
+              <span>6 Min Read</span>
+            </div>
+            <h4 class="text-base font-bold text-brand-navy group-hover:text-brand-accent transition-colors">
+              Why SEO is important for your business in the AI search era
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Navigating Generative AI answers, Google Core updates, and authority-first content engineering that captures high-value B2B purchase intent.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 13. MODERN AGENCY FOOTER                                                  -->
+    <!-- ========================================================================= -->
+    <footer class="bg-brand-navy text-slate-300 border-t border-slate-800 pt-16 pb-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+          
+          <!-- Col 1 & 2: Agency Identity -->
+          <div class="lg:col-span-2 space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-white/10 p-1 flex items-center justify-center">
+                <img src="assets/coffee-cup.png" alt="Coffee Cup" class="w-6 h-6 object-contain">
+              </div>
+              <span class="font-bold text-2xl text-white tracking-tight">Advertising &amp; More</span>
+            </div>
+            
+            <p class="text-xs text-slate-400 max-w-sm leading-relaxed">
+              Integrated advertising, media buying, full-funnel digital strategy, corporate events, and public relations. Ten international offices delivering exceptional campaigns across Asia, North America, and Australasia.
+            </p>
+
+            <div class="pt-2 text-xs font-mono space-y-1">
+              <p>Email: <a href="mailto:hello@advertisingandmore.com" class="text-brand-accent hover:underline">hello@advertisingandmore.com</a></p>
+              <p class="text-slate-400">Headquarters: Kuala Lumpur &bull; Dubai &bull; Singapore</p>
+            </div>
+          </div>
+
+          <!-- Col 3: Services -->
+          <div class="space-y-3">
+            <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-white">Capabilities</h4>
+            <ul class="text-xs space-y-2 text-slate-400">
+              <li><a href="#services" class="hover:text-brand-accent transition-colors">Digital Advertising</a></li>
+              <li><a href="#services" class="hover:text-brand-accent transition-colors">Media Buying &amp; Planning</a></li>
+              <li><a href="#services" class="hover:text-brand-accent transition-colors">Social Media &amp; Influencers</a></li>
+              <li><a href="#services" class="hover:text-brand-accent transition-colors">Events &amp; Activations</a></li>
+              <li><a href="#services" class="hover:text-brand-accent transition-colors">Public Relations &amp; CSR</a></li>
+              <li><a href="#services" class="hover:text-brand-accent transition-colors">Website &amp; Mobile UX</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Navigation -->
+          <div class="space-y-3">
+            <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-white">Quick Links</h4>
+            <ul class="text-xs space-y-2 text-slate-400">
+              <li><a href="#process" class="hover:text-brand-accent transition-colors">Our 5-Step Process</a></li>
+              <li><a href="#work" class="hover:text-brand-accent transition-colors">Client Case Studies</a></li>
+              <li><a href="#testimonials" class="hover:text-brand-accent transition-colors">Client Testimonials</a></li>
+              <li><a href="#team" class="hover:text-brand-accent transition-colors">Meet the Dream Team</a></li>
+              <li><a href="#offices" class="hover:text-brand-accent transition-colors">10 Global Hubs</a></li>
+              <li><a href="#booking" class="hover:text-brand-accent transition-colors">Book a Happy Meeting</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 5: Global Offices -->
+          <div class="space-y-3">
+            <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-white">10 Global Hubs</h4>
+            <p class="text-[11px] font-mono text-slate-400 leading-relaxed">
+              Malaysia &bull; Dubai (U.A.E.) &bull; Jakarta (Indonesia) &bull; Taipei (Taiwan) &bull; Ottawa (Canada) &bull; Kowloon (Hong Kong) &bull; New Delhi (India) &bull; Islamabad (Pakistan) &bull; Auckland (New Zealand) &bull; Marina (Singapore)
+            </p>
+            <div class="pt-2">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800 text-[10px] font-mono text-brand-gold border border-slate-700">
+                ☕ The Drinks Are on Us
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Sub-Footer / Legal & Contest Redesign Notice -->
+        <div class="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500">
+          <p>
+            &copy; 2026 Advertising &amp; More. All rights reserved. &bull; Integrated Advertising &amp; Marketing Agency.
+          </p>
+          <div class="flex items-center gap-4">
+            <span class="text-slate-400">Contest Redesign Concept</span>
+            <span>&bull;</span>
+            <a href="#" class="text-slate-400 hover:text-white transition-colors">Back to Top &uarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+  </div><!-- End Viewport Wrapper -->
+
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: CASE STUDY DETAIL POPUP                                            -->
+  <!-- ========================================================================= -->
+  <div id="case-modal" class="fixed inset-0 bg-brand-navy/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 space-y-5 border border-brand-border shadow-2xl relative animate-scaleIn">
+      <button onclick="closeCaseModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center text-sm font-bold transition-colors">
+        ✕
+      </button>
+
+      <span id="modal-case-client" class="inline-block px-3 py-1 rounded-full bg-orange-100 text-brand-accent text-xs font-mono font-bold">
+        Client Name
+      </span>
+
+      <h3 id="modal-case-title" class="text-2xl font-bold text-brand-navy">
+        Case Study Title
+      </h3>
+
+      <p id="modal-case-meta" class="text-xs font-mono text-slate-500 font-semibold border-b border-slate-100 pb-3">
+        Disciplines &bull; Channels &bull; Scope
+      </p>
+
+      <p id="modal-case-desc" class="text-sm text-slate-600 leading-relaxed">
+        Description narrative goes here...
+      </p>
+
+      <div class="pt-2 flex justify-end gap-3">
+        <button onclick="closeCaseModal()" class="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors">
+          Close Window
+        </button>
+        <a href="#booking" onclick="closeCaseModal()" class="px-5 py-2.5 rounded-xl bg-brand-accent hover:bg-brand-accentHover text-white text-xs font-bold transition-colors">
+          Book a Similar Campaign ☕
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: INTERACTIVE QUIZ POPUP                                             -->
+  <!-- ========================================================================= -->
+  <div id="quiz-modal" class="fixed inset-0 bg-brand-navy/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-5 border border-brand-border shadow-2xl relative">
+      <button onclick="closeQuizModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center text-sm font-bold transition-colors">
+        ✕
+      </button>
+
+      <span class="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-mono font-bold">
+        Interactive Knowledge Quiz &bull; Win Strategy Prizes
+      </span>
+
+      <h3 id="quiz-modal-title" class="text-2xl font-bold text-brand-navy">
+        Quiz Title
+      </h3>
+
+      <div id="quiz-body" class="space-y-4 text-sm">
+        <p class="text-slate-700 font-medium">Question: What is the single biggest cause of ad budget waste in digital media buying?</p>
+        
+        <div class="space-y-2">
+          <label class="flex items-center gap-3 p-3 rounded-xl border border-brand-border hover:bg-slate-50 cursor-pointer text-xs">
+            <input type="radio" name="quiz_q1" value="a" class="text-brand-accent focus:ring-brand-accent">
+            <span>A) Audience saturation without frequency capping</span>
+          </label>
+          <label class="flex items-center gap-3 p-3 rounded-xl border border-brand-border hover:bg-slate-50 cursor-pointer text-xs">
+            <input type="radio" name="quiz_q1" value="b" class="text-brand-accent focus:ring-brand-accent">
+            <span>B) Disconnected post-click landing page experience</span>
+          </label>
+          <label class="flex items-center gap-3 p-3 rounded-xl border border-brand-border hover:bg-slate-50 cursor-pointer text-xs">
+            <input type="radio" name="quiz_q1" value="c" class="text-brand-accent focus:ring-brand-accent">
+            <span>C) Lack of creative A/B testing and hook variations</span>
+          </label>
+          <label class="flex items-center gap-3 p-3 rounded-xl border border-brand-border hover:bg-slate-50 cursor-pointer text-xs">
+            <input type="radio" name="quiz_q1" value="d" checked class="text-brand-accent focus:ring-brand-accent">
+            <span>D) All of the above (Omnichannel misalignment)</span>
+          </label>
+        </div>
+      </div>
+
+      <div id="quiz-result" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-800">
+        <strong>Correct! Option D is the winner.</strong> Omnichannel misalignment is the #1 silent killer of ad ROAS. You've qualified for a complimentary Strategy Review from our senior directors!
+      </div>
+
+      <div class="pt-2 flex justify-end gap-3">
+        <button id="btn-submit-quiz" onclick="submitQuiz()" class="px-5 py-2.5 rounded-xl bg-brand-accent hover:bg-brand-accentHover text-white text-xs font-bold transition-colors">
+          Submit Answer &rarr;
+        </button>
+        <button id="btn-close-quiz" onclick="closeQuizModal()" class="hidden px-5 py-2.5 rounded-xl bg-brand-navy text-white text-xs font-bold transition-colors">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- VANILLA JAVASCRIPT: INTERACTION CONTROLLERS                               -->
+  <!-- ========================================================================= -->
+  <script>
+    // 1. Mobile Menu Drawer Toggle
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobile-drawer');
+      const openIcon = document.getElementById('icon-menu-open');
+      const closeIcon = document.getElementById('icon-menu-close');
+      const isHidden = drawer.classList.contains('hidden');
+      
+      if (isHidden) {
+        drawer.classList.remove('hidden');
+        openIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      } else {
+        drawer.classList.add('hidden');
+        openIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      }
+    }
+
+    // 2. Services Filter Tabs
+    function filterServices(category) {
+      const cards = document.querySelectorAll('.service-card');
+      const tabs = document.querySelectorAll('.service-tab');
+      
+      // Update Tab Styles
+      tabs.forEach(tab => {
+        tab.classList.remove('bg-brand-navy', 'text-white');
+        tab.classList.add('bg-white', 'text-slate-600', 'border', 'border-brand-border');
+      });
+
+      const activeTab = document.getElementById('tab-' + category);
+      if (activeTab) {
+        activeTab.classList.remove('bg-white', 'text-slate-600');
+        activeTab.classList.add('bg-brand-navy', 'text-white');
+      }
+
+      // Filter Cards
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // 3. Welcome Drink Selector
+    function selectDrink(drinkName) {
+      document.getElementById('selected-drink-input').value = drinkName;
+      document.getElementById('selected-drink-display').textContent = drinkName;
+
+      // Update Button Styles
+      document.querySelectorAll('.drink-btn').forEach(btn => {
+        if (btn.getAttribute('data-drink') === drinkName) {
+          btn.classList.remove('bg-white', 'border-brand-border', 'text-slate-700');
+          btn.classList.add('border-2', 'border-brand-accent', 'bg-orange-50', 'text-slate-800', 'shadow-xs');
+        } else {
+          btn.classList.remove('border-2', 'border-brand-accent', 'bg-orange-50', 'text-slate-800', 'shadow-xs');
+          btn.classList.add('border', 'border-brand-border', 'bg-white', 'text-slate-700');
+        }
+      });
+    }
+
+    // 4. Meeting Form Submit Simulator
+    function handleMeetingSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('happy-meeting-form');
+      const successCard = document.getElementById('form-success-card');
+      
+      form.classList.add('hidden');
+      successCard.classList.remove('hidden');
+    }
+
+    function resetMeetingForm() {
+      const form = document.getElementById('happy-meeting-form');
+      const successCard = document.getElementById('form-success-card');
+      
+      form.reset();
+      form.classList.remove('hidden');
+      successCard.classList.add('hidden');
+    }
+
+    // 5. Case Study Modal
+    function openCaseModal(title, client, meta, desc) {
+      document.getElementById('modal-case-title').textContent = title;
+      document.getElementById('modal-case-client').textContent = client;
+      document.getElementById('modal-case-meta').textContent = meta;
+      document.getElementById('modal-case-desc').textContent = desc;
+      document.getElementById('case-modal').classList.remove('hidden');
+    }
+
+    function closeCaseModal() {
+      document.getElementById('case-modal').classList.add('hidden');
+    }
+
+    // 6. Quiz Modal
+    function openQuizModal(title) {
+      document.getElementById('quiz-modal-title').textContent = title;
+      document.getElementById('quiz-result').classList.add('hidden');
+      document.getElementById('btn-submit-quiz').classList.remove('hidden');
+      document.getElementById('btn-close-quiz').classList.add('hidden');
+      document.getElementById('quiz-modal').classList.remove('hidden');
+    }
+
+    function submitQuiz() {
+      document.getElementById('quiz-result').classList.remove('hidden');
+      document.getElementById('btn-submit-quiz').classList.add('hidden');
+      document.getElementById('btn-close-quiz').classList.remove('hidden');
+    }
+
+    function closeQuizModal() {
+      document.getElementById('quiz-modal').classList.add('hidden');
+    }
+
+    // 7. Top Viewport Switcher for Contest Review
+    function setViewport(mode) {
+      const frame = document.getElementById('viewport-frame');
+      const btnD = document.getElementById('btn-vp-desktop');
+      const btnT = document.getElementById('btn-vp-tablet');
+      const btnM = document.getElementById('btn-vp-mobile');
+
+      [btnD, btnT, btnM].forEach(b => {
+        b.classList.remove('bg-brand-accent', 'text-white');
+        b.classList.add('text-slate-300');
+      });
+
+      if (mode === 'desktop') {
+        frame.style.maxWidth = '100%';
+        btnD.classList.add('bg-brand-accent', 'text-white');
+        btnD.classList.remove('text-slate-300');
+      } else if (mode === 'tablet') {
+        frame.style.maxWidth = '768px';
+        btnT.classList.add('bg-brand-accent', 'text-white');
+        btnT.classList.remove('text-slate-300');
+      } else if (mode === 'mobile') {
+        frame.style.maxWidth = '375px';
+        btnM.classList.add('bg-brand-accent', 'text-white');
+        btnM.classList.remove('text-slate-300');
+      }
+    }
+  </script>
+</body>
+</html>
